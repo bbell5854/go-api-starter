@@ -1,5 +1,8 @@
 default: build clean run
 
+local:
+	go run *.go
+
 test:
 	go test -v -cover ./...
 
