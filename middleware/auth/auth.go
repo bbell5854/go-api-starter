@@ -94,11 +94,14 @@ func checkToken(c *fiber.Ctx) bool {
 		return false
 	}
 
-	parsedToken, err := jwt.Parse(token, validationKeyGetter)
+	claims := jwt.MapClaims{}
+	parsedToken, err := jwt.ParseWithClaims(token, claims, validationKeyGetter)
 	if err != nil {
 		fmt.Printf("Error parsing token: %v", err)
 		return false
 	}
+
+	c.Locals("userSlug", claims["sub"])
 
 	return parsedToken.Valid
 }

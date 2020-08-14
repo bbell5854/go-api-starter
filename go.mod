@@ -6,7 +6,10 @@ require (
 	github.com/auth0/go-jwt-middleware v0.0.0-20200507191422-d30d7b9ece63
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-gonic/gin v1.6.3
+	github.com/go-sql-driver/mysql v1.5.0
 	github.com/gofiber/cors v0.2.2
 	github.com/gofiber/fiber v1.13.3
 	github.com/gofiber/jwt v0.2.0
+	github.com/jmoiron/sqlx v1.2.0
+	github.com/joho/godotenv v1.3.0
 )
