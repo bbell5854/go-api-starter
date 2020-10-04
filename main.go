@@ -18,7 +18,7 @@ const port = "9000"
 
 func init() {
 	var dbType = "mysql"
-	var dbConnString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s", os.Getenv("DB_USERNAME"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_HOST"), os.Getenv("DB_NAME"))
+	var dbConnString = fmt.Sprintf("%s:%s@tcp(%s:%s)", os.Getenv("DB_USERNAME"), os.Getenv("DB_PASSWORD"), os.Getenv("DB_HOST"), os.Getenv("DB_PORT"))
 
 	// If we're not in production, lets load an env file
 	if os.Getenv("ENVIRONMENT") != "production" {
