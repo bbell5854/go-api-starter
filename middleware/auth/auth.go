@@ -10,8 +10,8 @@ import (
 	"github.com/gofiber/fiber"
 )
 
-const auth0Audience = "https://scrumdelta.auth0.com/api/v2/"
-const auth0Domain = "https://scrumdelta.auth0.com/"
+const auth0Audience = ""
+const auth0Domain = ""
 
 const authHeaderKey = "Authorization"
 const authScheme = "Bearer"
