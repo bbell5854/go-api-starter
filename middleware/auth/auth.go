@@ -5,13 +5,14 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gofiber/fiber"
 )
 
-const auth0Audience = ""
-const auth0Domain = ""
+var auth0Audience = os.Getenv("AUTH_AUDIENCE")
+var auth0Domain = os.Getenv("AUTH_DOMAIN")
 
 const authHeaderKey = "Authorization"
 const authScheme = "Bearer"
