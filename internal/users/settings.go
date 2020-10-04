@@ -1,13 +1,14 @@
 package users
 
 import (
-	"go-api-starter/internal/mysql"
+	"go-api-starter/internal/database"
 	"log"
 	"net/http"
 
 	"github.com/gofiber/fiber"
 )
 
+// UserSettings : Model for GetUserSettings request
 type UserSettings struct {
 	FirstName string `json:"firstname,omitempty" db:"first_name"`
 	LastName  string `json:"lastname,omitempty" db:"last_name"`
@@ -25,13 +26,13 @@ WHERE 1
 	AND u.auth_slug = ?;
 `
 
-// GetUserSettings fetches user settings from the DB and returns a JSON response
-func GetSettings(c *fiber.Ctx) {
+// GetUserSettings :  fetches user settings from the DB and returns a JSON response
+func GetUserSettings(c *fiber.Ctx) {
 	// Get slug from request
 	userSlug := c.Locals("userSlug")
 
 	var userSettings UserSettings
-	err := mysql.DB.Get(&userSettings, getUserSettingsQuery, userSlug)
+	err := database.DB.Get(&userSettings, getUserSettingsQuery, userSlug)
 	if err != nil {
 		log.Println(err)
 		c.SendStatus(http.StatusInternalServerError)

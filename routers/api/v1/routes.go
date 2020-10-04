@@ -10,5 +10,5 @@ import (
 // SetupRoutes Initializes routes for the API
 func SetupRoutes(app *fiber.App) {
 	apiV1 := app.Group("/api/v1", auth.Protected())
-	apiV1.Get("/user/settings", users.GetSettings)
+	apiV1.Get("/user/settings", users.GetUserSettings)
 }
